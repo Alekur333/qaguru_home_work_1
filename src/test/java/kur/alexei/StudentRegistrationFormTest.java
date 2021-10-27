@@ -22,7 +22,7 @@ public class StudentRegistrationFormTest {
     String currentAddress = "Students Street 9";
     String state = "NCR";
     String city = "Delhi";
-
+    String testPage = "https://demoqa.com/automation-practice-form";
 
     @BeforeAll
     public static void beforeTest() {
@@ -31,11 +31,11 @@ public class StudentRegistrationFormTest {
 
     @BeforeEach
     void openTestPage() {
-        open("https://demoqa.com/automation-practice-form");
+        open(testPage);
     }
 
     @Test
-    void name() {
+    void studentRegistrationFormTest() {
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(email);
