@@ -18,7 +18,7 @@ public class StudentRegistrationFormTest {
     String gender = "Male";
     String mobile = "1234567890";
     String subject = "comp";
-    File filePath = new File("/Users/aleks/Desktop/filePath.png");
+    File filePath = new File("src/test/resources/files/filePath.png");
     String currentAddress = "Students Street 9";
     String state = "NCR";
     String city = "Delhi";
