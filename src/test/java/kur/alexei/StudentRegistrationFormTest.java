@@ -50,7 +50,8 @@ public class StudentRegistrationFormTest {
         $x("//div[text()=\"30\"]").click();
         $("#subjectsInput").setValue(subject).pressEnter();
         $(byText("Music")).click();
-        $("#uploadPicture").uploadFile(filePath);
+//        $("#uploadPicture").uploadFile(filePath);
+        $("#uploadPicture").uploadFromClasspath("files/filePath.png");
         $("#currentAddress").setValue(currentAddress);
         $("#react-select-3-input").setValue(state).pressEnter();
         $("#react-select-4-input").setValue(city).pressEnter();
