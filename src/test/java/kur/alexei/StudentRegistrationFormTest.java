@@ -3,6 +3,7 @@ package kur.alexei;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -27,6 +28,7 @@ public class StudentRegistrationFormTest extends TestBase {
     String testPage = "https://demoqa.com/automation-practice-form";
 
     @Test
+    @DisplayName("Проверка формы с запуском в jenkins и Allure report")
     void studentRegistrationFormTest() {
 
         open(testPage);
