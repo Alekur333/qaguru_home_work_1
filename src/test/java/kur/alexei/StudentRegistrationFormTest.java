@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
 
@@ -11,7 +12,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.text;
 
-public class StudentRegistrationFormTest {
+public class StudentRegistrationFormTest extends TestBase {
+
     String firstName = "Alexei";
     String lastName = "Kurochkin";
     String email = "my@mail.com";
@@ -24,18 +26,10 @@ public class StudentRegistrationFormTest {
     String city = "Delhi";
     String testPage = "https://demoqa.com/automation-practice-form";
 
-    @BeforeAll
-    public static void beforeTest() {
-        Configuration.startMaximized=true;
-    }
-
-    @BeforeEach
-    void openTestPage() {
-        open(testPage);
-    }
-
     @Test
     void studentRegistrationFormTest() {
+
+        open(testPage);
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(email);
