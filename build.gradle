@@ -38,6 +38,9 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
+    // дефолтные значения для окружения запускаемых тестов
+    //    systemProperty("environment", System.getProperty("environment", "stage")) // preprod, prod
+    systemProperties(System.getProperties())
     useJUnitPlatform()
 
     testLogging {
@@ -47,4 +50,22 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+
+
 }
+
+task properties_tests (type: Test) {
+    useJUnitPlatform {
+            includeTags "properties"
+            excludeTags "skip"
+    }
+}
+
+task many_tests (type: Test) {
+    useJUnitPlatform {
+            includeTags "properties"
+            includeTags "smoke"
+            excludeTags "prod"
+    }
+}
+
