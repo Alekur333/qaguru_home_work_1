@@ -60,6 +60,9 @@ public class StudentRegistrationFormTest extends TestBase {
                 text("Male"), text(mobile), text("30 March,1974"), text("Computer Science"),
                 text("Music"), text("filePath.png"), text(currentAddress), text(state), text(city));
 
+        System.out.println(lastName);
+        System.out.println(mobile);
+
     }
 
 }
