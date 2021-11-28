@@ -24,11 +24,14 @@ public class TestBase {
         Configuration.startMaximized = true;
 //        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
 //        String loginData = credentials.selenoidLogin() + ":" + credentials.selenoidPassword();
+//        String selenoid = "https://" + loginData + "@selenoid.autotests.cloud/wd/hub/";
+
         String selenoidLogin = credentials.selenoidLogin();
         String selenoidPassword = credentials.selenoidPassword();
-//        String selenoid = "https://" + loginData + "@selenoid.autotests.cloud/wd/hub/";
-        String selenoidUrl =
-                format("https://%s:%s@selenoid.autotests.cloud/wd/hub/", selenoidLogin, selenoidPassword);
+//        String selenoidUrl =
+//                format("https://%s:%s@selenoid.autotests.cloud/wd/hub/", selenoidLogin, selenoidPassword);     String selenoidUrl =
+        String selenoidUrl = System.getProperty("selenoidUrl");
+        ;
         Configuration.remote = selenoidUrl;
 //        System.out.println(selenoidUrl);
 
