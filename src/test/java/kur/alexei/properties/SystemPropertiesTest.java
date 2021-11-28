@@ -1,9 +1,17 @@
 package kur.alexei.properties;
 
+import config.CredentialsConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static java.lang.String.format;
+
 public class SystemPropertiesTest {
+
+
+    public CredentialsConfig credentials =
+            ConfigFactory.create(CredentialsConfig.class);
 
     @Test
     void someTest1() {
@@ -48,4 +56,6 @@ public class SystemPropertiesTest {
         //gradle clean properties_tests -Dbrowser=opera -Dversion=93 -Dsize=300x300
         //opera  93 300x300
     }
+
+
 }

@@ -1,10 +1,9 @@
 package kur.alexei;
 
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import config.CredentialsConfig;
+import org.aeonbits.owner.ConfigFactory;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
@@ -13,13 +12,17 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.text;
 
+@Tag("smoke")
 public class StudentRegistrationFormTest extends TestBase {
 
-    String firstName = "Alexei";
-    String lastName = "Kurochkin";
-    String email = "my@mail.com";
+    public CredentialsConfig credentials =
+            ConfigFactory.create(CredentialsConfig.class);
+
+    String firstName = System.getProperty("firstName", "Alexei");
+    String lastName = System.getProperty("lastName", "Kurochkin");
+    String email = System.getProperty("email", credentials.email());
+    String mobile = System.getProperty("mobile", credentials.mobile());
     String gender = "Male";
-    String mobile = "1234567890";
     String subject = "comp";
     File filePath = new File("src/test/resources/files/filePath.png");
     String currentAddress = "Students Street 9";
@@ -43,7 +46,7 @@ public class StudentRegistrationFormTest extends TestBase {
         $(".react-datepicker__year-select").selectOptionByValue("1974");
         $(".react-datepicker__month-dropdown-container").click();
         $(".react-datepicker__month-select").selectOptionByValue("2");
-        $x("//div[text()=\"30\"]").click();
+        $x("//div[text()='30']").click();
         $("#subjectsInput").setValue(subject).pressEnter();
         $(byText("Music")).click();
 //        $("#uploadPicture").uploadFile(filePath);
@@ -58,4 +61,5 @@ public class StudentRegistrationFormTest extends TestBase {
                 text("Music"), text("filePath.png"), text(currentAddress), text(state), text(city));
 
     }
+
 }
